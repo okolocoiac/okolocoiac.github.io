@@ -5,22 +5,43 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
+
+	<script>
+		function showTooltip(el) {
+			var tooltip = document.getElementById('tooltip');
+			tooltip.style.display = 'block';
+			tooltip.innerHTML = el.title;
+		}
+
+		function hideTooltip(el) {
+			var tooltip = document.getElementById('tooltip');
+			tooltip.style.display = 'none';
+			tooltip.innerHTML = '';
+		}
+
+		document.addEventListener('mousemove', function (e) {
+			document.getElementById('tooltip').style.left = (e.pageX + 5) + "px";
+			document.getElementById('tooltip').style.top = (e.pageY + 5) + "px";
+		});
+	</script>
 </head>
 <body>
 	<img src="image.jpg" alt="Unable to load image" usemap="#image-map" width="936" height="664">
 
 	<map name="image-map">
-		<area target="" alt="Garagem" title="Garagem" href="" coords="148,119,267,409" shape="rect">
-		<area target="" alt="Entrada" title="Entrada" href="" coords="389,227,268,120" shape="rect">
-		<area target="" alt="Cozinha com sala de jantar" title="Cozinha com sala de jantar" href="" coords="568,391,389,119" shape="rect">
-		<area target="" alt="???" title="???" href="" coords="270,488,387,352" shape="rect">
-		<area target="" alt="Quarto" title="Quarto" href="" coords="574,489,724,265" shape="rect">
-		<area target="" alt="Lavabo" title="Lavabo" href="" coords="675,194,622,263" shape="rect">
-		<area target="" alt="Banheiro" title="Banheiro" href="" coords="726,194,675,263" shape="rect">
-		<area target="" alt="Chuveiro" title="Chuveiro" href="" coords="726,121,661,194" shape="rect">
-		<area target="" alt="Jardim 1" title="Jardim 1" href="" coords="268,229,389,352" shape="rect">
-		<area target="" alt="Jardim 2" title="Jardim 2" href="" coords="388,392,572,493" shape="rect">
-		<area target="" alt="Jardim 3" title="Jardim 3" href="" coords="622,121,569,227" shape="rect">
+		<area target="" alt="Garagem" title="Garagem" href="" coords="148,119,267,409" shape="rect" onmouseover="showTooltip(this)" onmouseout="hideTooltip(this)">
+		<area target="" alt="Entrada" title="Entrada" href="" coords="389,227,268,120" shape="rect" onmouseover="showTooltip(this)" onmouseout="hideTooltip(this)">
+		<area target="" alt="Cozinha + Sala" title="Cozinha + Sala" href="" coords="568,391,389,119" shape="rect" onmouseover="showTooltip(this)" onmouseout="hideTooltip(this)">
+		<area target="" alt="???" title="???" href="" coords="270,488,387,352" shape="rect" onmouseover="showTooltip(this)" onmouseout="hideTooltip(this)">
+		<area target="" alt="Quarto" title="Quarto" href="" coords="574,489,724,265" shape="rect" onmouseover="showTooltip(this)" onmouseout="hideTooltip(this)">
+		<area target="" alt="Lavabo" title="Lavabo" href="" coords="675,194,622,263" shape="rect" onmouseover="showTooltip(this)" onmouseout="hideTooltip(this)">
+		<area target="" alt="Banheiro" title="Banheiro" href="" coords="726,194,675,263" shape="rect" onmouseover="showTooltip(this)" onmouseout="hideTooltip(this)">
+		<area target="" alt="Chuveiro" title="Chuveiro" href="" coords="726,121,661,194" shape="rect" onmouseover="showTooltip(this)" onmouseout="hideTooltip(this)">
+		<area target="" alt="Jardim 1" title="Jardim 1" href="" coords="268,229,389,352" shape="rect" onmouseover="showTooltip(this)" onmouseout="hideTooltip(this)">
+		<area target="" alt="Jardim 2" title="Jardim 2" href="" coords="388,392,572,493" shape="rect" onmouseover="showTooltip(this)" onmouseout="hideTooltip(this)">
+		<area target="" alt="Jardim 3" title="Jardim 3" href="" coords="622,121,569,227" shape="rect" onmouseover="showTooltip(this)" onmouseout="hideTooltip(this)">
 	</map>
+
+	<div id="tooltip"></div>
 </body>
 </html>
